@@ -80,6 +80,28 @@
       margin-bottom: 1rem;
     }
 
+    .logo-hero {
+      max-width: 300px;
+      margin: 1rem auto 2rem;
+      animation: glowFade 3s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes glowFade {
+      0% {
+        opacity: 0;
+        filter: drop-shadow(0 0 0px transparent);
+      }
+      50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 6px #e08b35);
+      }
+      100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 12px #e08b35);
+      }
+    }
+
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
@@ -162,6 +184,7 @@
 
   <section class="hero fade-in">
     <h1>Welcome to Carrots Cannoli</h1>
+    <img src="logo.png" alt="Carrots Cannoli Logo" class="logo-hero" />
     <p>A whimsical world of sweet dreams, curious cats, and cozy cannolis.</p>
     <a href="#" class="hero-button">Enter the Bakery</a>
   </section>
