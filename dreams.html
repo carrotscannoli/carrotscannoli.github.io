@@ -6,22 +6,21 @@
   <title>What We're Dreaming Up | Carrots Cannoli</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: #fff6ec;
-      color: #492500;
-      overflow-x: hidden;
-      height: 100vh;
+      box-sizing: border-box;
     }
-    
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: rgba(255, 246, 236, 0.95);
-      padding: 1rem 2rem;
+      padding: 0.5rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
