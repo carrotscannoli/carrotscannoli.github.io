@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carrots Cannoli</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Quicksand', sans-serif;
       background: #fff6ec;
       color: #492500;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .header {
@@ -66,76 +67,65 @@
       display: flex;
     }
 
-    .main-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: calc(100vh - 80px);
-      padding: 0 2rem;
-      text-align: center;
-    }
-
     .hero {
-      max-width: 650px;
-    }
-
-    .hero h1 {
-      font-family: 'Lora', serif;
-      font-size: 3rem;
-      margin: 0.5rem 0 1rem;
-      white-space: nowrap;
-    }
-
-    .logo-hero {
-      max-width: 300px;
-      display: block;
-      margin: 0 auto 0.75rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .button-group {
       display: flex;
-      gap: 1rem;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       justify-content: center;
+      min-height: calc(100vh - 80px);
+      padding: 100px 2rem 2rem;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.8rem;
+      margin: 0 0 1rem;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #6b4f3f;
+    }
+
+    .hero-buttons {
+      display: flex;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
     }
 
     .hero-button {
       background-color: #492500;
       color: #fff;
       padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
       border-radius: 8px;
       text-decoration: none;
+      font-weight: bold;
       transition: background-color 0.3s ease;
     }
 
     .hero-button:hover {
       background-color: #e08b35;
-      color: white;
     }
 
     footer {
       text-align: center;
+      font-size: 0.95rem;
       padding: 1rem;
-      font-style: italic;
-      font-size: 1rem;
-      color: #492500;
-      background-color: rgba(255, 246, 236, 0.95);
+      color: #6b4f3f;
     }
 
     @media (max-width: 600px) {
-      body {
-        overflow: auto;
+      h1 {
+        font-size: 2rem;
       }
-      .hero h1 {
-        font-size: 2.2rem;
-        white-space: normal;
+
+      .tagline {
+        font-size: 1rem;
       }
     }
   </style>
@@ -165,24 +155,21 @@
       <a href="dreams.html">What We're Dreaming Up</a>
       <a href="get-in-touch.html">Get in Touch</a>
     </div>
-    <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
+    <a href="index.html"><img src="logo.png" alt="Carrots Cannoli Logo" class="logo" /></a>
   </div>
 
-  <div class="main-content">
-    <section class="hero">
-      <h1>Welcome to Carrots Cannoli</h1>
-      <img src="logo.png" alt="Carrots Cannoli Logo" class="logo-hero" />
-      <p>A whimsical world of sweet dreams, curious cats, and cozy cannolis.</p>
-      <div class="button-group">
-        <a href="lore.html" class="hero-button">Explore the Lore</a>
-        <a href="dreams.html" class="hero-button">See the Vision</a>
-        <a href="get-in-touch.html" class="hero-button">Get in Touch</a>
-      </div>
-    </section>
+  <div class="hero">
+    <h1>Welcome to Carrots Cannoli</h1>
+    <div class="tagline">A whimsical world of sweet dreams, curious cats, and cozy cannolis.</div>
+    <div class="hero-buttons">
+      <a href="lore.html" class="hero-button">Explore the Lore</a>
+      <a href="dreams.html" class="hero-button">See the Vision</a>
+      <a href="get-in-touch.html" class="hero-button">Get in Touch</a>
+    </div>
   </div>
 
   <footer>
-    “Whispers from the Window” — where dreams smell like sugar and stories are served warm.
+    2025 Carrots Cannoli — Made with magic & whimsy.
   </footer>
 </body>
 </html>
