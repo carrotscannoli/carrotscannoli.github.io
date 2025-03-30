@@ -35,17 +35,18 @@
       max-height: 50px;
     }
 
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      left: 1.5rem;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: none;
-      flex-direction: column;
-    }
+   .dropdown {
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  z-index: 1001;
+}
 
     .dropdown a {
       padding: 0.75rem 1rem;
@@ -147,9 +148,15 @@
 </head>
 <body>
   <div class="header">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div id="dropdown-menu" class="dropdown">
+    <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
+    <a href="inspiration.html">Meet the Inspiration</a>
+    <a href="humans.html">About the Humans</a>
+    <a href="dreams.html">What We're Dreaming Up</a>
   </div>
+  <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
+</div>
   <div id="dropdown-menu" class="dropdown">
     <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
     <a href="inspiration.html">Meet the Inspiration</a>
