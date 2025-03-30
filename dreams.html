@@ -179,6 +179,7 @@
 
     .deconstructed-card {
       flex: 1;
+      position: relative;
       background: #ffffff;
       border: 1px solid #d7bfa5;
       border-radius: 12px;
@@ -186,12 +187,18 @@
       max-width: 300px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
       text-align: center;
+      overflow: hidden;
     }
 
     .deconstructed-card img {
       width: 100%;
       border-radius: 8px;
       margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .deconstructed-card:hover img {
+      transform: scale(1.05);
     }
 
     .deconstructed-card h4 {
@@ -202,6 +209,29 @@
     .deconstructed-caption {
       font-size: 0.9rem;
       color: #5e3d2c;
+    }
+
+    .deconstructed-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 246, 236, 0.95);
+      color: #492500;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .deconstructed-card:hover .deconstructed-info {
+      opacity: 1;
     }
 
     .whimsy-quote {
@@ -233,42 +263,6 @@
       background-color: #e08b35;
       color: #fff;
     }
-
-    .deconstructed-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.deconstructed-card img {
-  transition: transform 0.3s ease;
-}
-
-.deconstructed-card:hover img {
-  transform: scale(1.05);
-}
-
-.deconstructed-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 246, 236, 0.95);
-  color: #492500;
-  font-size: 0.95rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-}
-
-.deconstructed-card:hover .deconstructed-info {
-  opacity: 1;
-}
 
     @media (max-width: 800px) {
       .deconstructed-section {
@@ -355,14 +349,15 @@
         This is our way of reimagining the cannoli — in parfaits, stacks, and spoonfuls of story.
       </p>
     </div>
-<div class="deconstructed-card">
-  <img src="https://placekitten.com/260/180" alt="Deconstructed Cannoli" />
-  <div class="deconstructed-info">
-    Coming soon: Build your own bite! Pick your favorite fillings and toppings for a custom cannoli experience.
+    <div class="deconstructed-card">
+      <img src="https://placekitten.com/260/180" alt="Deconstructed Cannoli" />
+      <div class="deconstructed-info">
+        Coming soon: Build your own bite! Pick your favorite fillings and toppings for a custom cannoli experience.
+      </div>
+      <h4>Build-a-Bite Cannoli</h4>
+      <p class="deconstructed-caption">Cream, crunch, and flavor in every playful spoon.</p>
+    </div>
   </div>
-  <h4>Build-a-Bite Cannoli</h4>
-  <p class="deconstructed-caption">Cream, crunch, and flavor in every playful spoon.</p>
-</div>
 
   <p class="whimsy-quote">“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”</p>
 
