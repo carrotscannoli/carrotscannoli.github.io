@@ -81,26 +81,22 @@
     }
 
     .logo-hero {
-      max-width: 300px;
-      margin: 1rem auto 2rem;
-      animation: glowFade 3s ease-in-out forwards;
-      opacity: 0;
-    }
+  max-width: 300px;
+  margin: 1rem auto 1rem; /* tightened spacing */
+  animation: glowPulse 3s ease-in-out infinite;
+}
 
-    @keyframes glowFade {
-      0% {
-        opacity: 0;
-        filter: drop-shadow(0 0 0px transparent);
-      }
-      50% {
-        opacity: 1;
-        filter: drop-shadow(0 0 6px #e08b35);
-      }
-      100% {
-        opacity: 1;
-        filter: drop-shadow(0 0 12px #e08b35);
-      }
-    }
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px #f4d6a5);
+  }
+  100% {
+    filter: drop-shadow(0 0 0px transparent);
+  }
+}
 
     .hero p {
       font-size: 1.2rem;
