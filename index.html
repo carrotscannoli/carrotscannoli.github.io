@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carrots Cannoli</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -67,31 +67,35 @@
     }
 
     .main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 80px); /* ensures it fills the screen minus header */
-  padding: 0 2rem;
-  text-align: center;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+      padding: 0 2rem;
+      text-align: center;
+    }
 
     .hero {
-      max-width: 600px;
+      max-width: 650px;
     }
 
     .hero h1 {
-  font-size: 3rem;
-  margin: 0.5rem 0;
-}
+      font-family: 'Lora', serif;
+      font-size: 3rem;
+      margin: 0.5rem 0 1rem;
+      white-space: nowrap;
+    }
 
-.logo-hero {
-  max-width: 300px;
-  margin: 0 auto 0.5rem;
-}
+    .logo-hero {
+      max-width: 300px;
+      display: block;
+      margin: 0 auto 0.75rem;
+    }
 
-.hero p {
-  margin: 0.75rem 0 1.5rem;
-}
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
 
     .button-group {
       display: flex;
@@ -131,9 +135,7 @@
       }
       .hero h1 {
         font-size: 2.2rem;
-      }
-      .hero p {
-        font-size: 1rem;
+        white-space: normal;
       }
     }
   </style>
@@ -172,7 +174,7 @@
       <img src="logo.png" alt="Carrots Cannoli Logo" class="logo-hero" />
       <p>A whimsical world of sweet dreams, curious cats, and cozy cannolis.</p>
       <div class="button-group">
-        <a href="#" class="hero-button">Explore the Lore</a>
+        <a href="lore.html" class="hero-button">Explore the Lore</a>
         <a href="get-in-touch.html" class="hero-button">Get in Touch</a>
       </div>
     </section>
