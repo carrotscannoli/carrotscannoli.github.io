@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us – Carrots Cannoli</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&family=Lora:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     html, body {
       height: 100%;
@@ -23,7 +23,7 @@
       background-color: rgba(255, 246, 236, 0.95);
       padding: 0.5rem 1.5rem;
       position: sticky;
-      top: 0;
+      top: 0.5rem;
       z-index: 1000;
       border-bottom: 1px solid #d7bfa5;
       height: 60px;
@@ -68,34 +68,79 @@
       display: flex;
     }
 
-    h1 {
-      font-family: 'Lora', serif;
-      font-size: 2.8rem;
-      margin: 2rem 1rem 1rem;
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .about-text, .about-image {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+
+    .about-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       text-align: center;
     }
 
-    p {
+    .about-text p {
       font-size: 1.1rem;
-      max-width: 700px;
-      margin: 1rem auto;
       line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .vision-section {
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 1rem 2rem;
       text-align: center;
     }
 
-    a {
-      color: #a0522d;
-      text-decoration: none;
-      font-weight: bold;
+    .vision-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .vision-section p {
+      font-size: 1.1rem;
+      color: #5e3d2c;
+      line-height: 1.6;
     }
 
     .back-link {
+      display: inline-block;
       text-align: center;
-      margin-top: 2rem;
+      margin: 3rem auto 2rem;
+      font-weight: bold;
+    }
+
+    .back-link a {
+      color: #a0522d;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
     }
   </style>
   <script>
@@ -115,22 +160,35 @@
   </script>
 </head>
 <body>
- <div class="header">
-     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-     <div id="dropdown-menu" class="dropdown">
-       <a href="lore.html">Explore the Lore</a>
-       <a href="dreams.html">What We're Dreaming Up</a>
-       <a href="inspiration.html">Meet the Cats</a>
-       <a href="about.html">About the Humans</a>
-       <a href="get-in-touch.html">Get in Touch</a>
-     </div>
-     <a href="index.html"><img src="cannoli.png" alt="Cannoli Image" class="logo" /></a>
-   </div>
+  <div class="header">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div id="dropdown-menu" class="dropdown">
+      <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
+      <a href="inspiration.html">Meet the Cats</a>
+      <a href="dreams.html">What We're Dreaming Up</a>
+      <a href="about.html">About the Humans</a>
+      <a href="get-in-touch.html">Get in Touch</a>
+    </div>
+    <a href="index.html">
+      <img src="cannoli.png" alt="Cannoli Image" class="logo" />
+    </a>
+  </div>
 
-  <h1>About Us</h1>
-  <p>Carrots Cannoli was born out of love, laughter, and a ginger cat named Carrots. It started as a daydream shared by two women in a tiny kitchen — one filled with the smell of espresso, the warmth of each other's company, and a cat who always found the sunniest spot on the floor.</p>
-  <p>We believe desserts are more than just sweet treats — they're memories in the making, comfort in a bite, and love stories in sugar and cream. Our goal is to create a space (digital and maybe someday physical!) that feels like a hug from an old friend.</p>
-  <p>We hope that Carrots Cannoli brings a little magic into your day, a reminder to savor the small moments, and maybe even the inspiration to follow your own sweet little dream.</p>
+  <div class="content-container">
+    <div class="about-text">
+      <h1>About Us</h1>
+      <p>Carrots Cannoli was born out of love, laughter, and a ginger cat named Carrots. It started as a daydream shared by two women in a tiny kitchen — one filled with the smell of espresso, the warmth of each other's company, and a cat who always found the sunniest spot on the floor.</p>
+      <p>We believe desserts are more than just sweet treats — they're memories in the making, comfort in a bite, and love stories in sugar and cream. Our goal is to create a space (digital and maybe someday physical!) that feels like a hug from an old friend.</p>
+    </div>
+    <div class="about-image">
+      <img src="humans.PNG" alt="Founders of Carrots Cannoli">
+    </div>
+  </div>
+
+  <div class="vision-section">
+    <h2>Our Vision</h2>
+    <p>We hope to build more than just a bakery — we want to build a soft place to land. One where customers feel seen, cozy, and creatively inspired. Whether it's a bite of cannoli that tastes like childhood joy or a story shared on our site that makes someone smile — we want you to feel part of the magic. Our dream is to blend the sweetness of tradition with the wild wonder of imagination. Come along, won't you?</p>
+  </div>
 
   <div class="back-link">
     <a href="index.html">← Back to Home</a>
