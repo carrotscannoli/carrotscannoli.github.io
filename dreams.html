@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastry Preview Carousel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #fff6ec;
+      color: #492500;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pastry-card {
+      flex: 0 0 auto;
+      background: #ffffff;
+      border: 1px solid #d7bfa5;
+      border-radius: 12px;
+      padding: 1rem;
+      min-width: 250px;
+      max-width: 250px;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .pastry-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .pastry-card h3 {
+      font-family: 'Playfair Display', serif;
+      margin: 0.5rem 0;
+    }
+
+    .pastry-card p {
+      font-size: 0.95rem;
+      color: #5e3d2c;
+    }
+  </style>
+</head>
+<body>
+  <h2>Peek into the Display Case</h2>
+  <div class="carousel-container">
+    <div class="pastry-card">
+      <img src="https://placekitten.com/250/150" alt="Cinnamon Scroll of Destiny" />
+      <h3>Cinnamon Scroll of Destiny</h3>
+      <p>Swirled with ancient spice and sweet fortune, this scroll is Sir Parsnip-approved.</p>
+    </div>
+    <div class="pastry-card">
+      <img src="https://placekitten.com/251/150" alt="Elderflower Dream Puff" />
+      <h3>Elderflower Dream Puff</h3>
+      <p>As light as a cloud and rumored to reveal your next big idea with every bite.</p>
+    </div>
+    <div class="pastry-card">
+      <img src="https://placekitten.com/252/150" alt="Maple Mischief Bomboloni" />
+      <h3>Maple Mischief Bomboloni</h3>
+      <p>This one’s sticky, sneaky, and impossible to eat with a straight face.</p>
+    </div>
+  </div>
+</body>
+</html>
