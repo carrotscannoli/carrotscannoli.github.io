@@ -65,14 +65,22 @@
       display: flex;
     }
 
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      min-height: calc(100vh - 80px);
+    }
+
     .hero {
-      height: calc(100vh - 80px);
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 1.5rem 2rem;
+      padding: 2rem;
+      order: 1;
     }
 
     .hero h1 {
@@ -128,6 +136,54 @@
       color: white;
     }
 
+    .contact-form {
+      flex: 1;
+      padding: 2rem;
+      order: 2;
+    }
+
+    .contact-form h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form label {
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #d7bfa5;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      margin-top: 1.5rem;
+      background-color: #492500;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #e08b35;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -137,26 +193,16 @@
       background-color: rgba(255, 246, 236, 0.95);
     }
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.2rem;
+    @media (max-width: 800px) {
+      .main-content {
+        flex-direction: column;
       }
-      .hero p {
-        font-size: 1rem;
+      .hero {
+        order: 1;
       }
-      .logo {
-        max-width: 120px;
+      .contact-form {
+        order: 2;
       }
-    }
-
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1.5s ease-in-out forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
   <script>
@@ -187,14 +233,35 @@
     <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
   </div>
 
-  <section class="hero fade-in">
-    <h1>Welcome to Carrots Cannoli</h1>
-    <div class="glow-wrapper">
-      <img src="logo.png" alt="Carrots Cannoli Logo" class="logo-hero" />
-    </div>
-    <p>A whimsical world of sweet dreams, curious cats, and cozy cannolis.</p>
-    <a href="#" class="hero-button">Enter the Bakery</a>
-  </section>
+  <div class="main-content">
+    <section class="contact-form">
+      <h2>Contact Us</h2>
+      <form action="https://formsubmit.co/carrotscannoli@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://carrotscannoli.com/thanks.html">
+        <input type="hidden" name="_captcha" value="false">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section class="hero fade-in">
+      <h1>Welcome to Carrots Cannoli</h1>
+      <div class="glow-wrapper">
+        <img src="logo.png" alt="Carrots Cannoli Logo" class="logo-hero" />
+      </div>
+      <p>A whimsical world of sweet dreams, curious cats, and cozy cannolis.</p>
+      <a href="#" class="hero-button">Enter the Bakery</a>
+    </section>
+  </div>
 
   <footer>
     “Whispers from the Window” — where dreams smell like sugar and stories are served warm.
