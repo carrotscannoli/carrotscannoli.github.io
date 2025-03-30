@@ -108,13 +108,14 @@
   <div class="section">
     <h2>Contact Us</h2>
     <form action="https://formsubmit.co/carrotscannoli@gmail.com" method="POST">
-  <!-- Anti-spam honeypot -->
-  <input type="text" name="_honey" style="display:none">
-  <!-- Disable Captcha (optional) -->
-  <input type="hidden" name="_captcha" value="false">
-  <!-- Redirect to a thank you page or confirmation -->
+  <!-- Redirect to thank-you page after submission -->
   <input type="hidden" name="_next" value="https://carrotscannoli.com/thanks.html">
+  
+  <!-- Optional: Add these hidden fields for extra features -->
+  <input type="text" name="_honey" style="display:none">
+  <input type="hidden" name="_captcha" value="false">
 
+  <!-- Visible fields -->
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="email" name="email" placeholder="Your Email" required>
   <textarea name="message" rows="5" placeholder="Tell us something sweet..." required></textarea>
