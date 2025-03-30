@@ -69,7 +69,15 @@
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       text-align: center;
-      margin: 2rem auto 1.5rem;
+      margin: 2rem auto 1rem;
+    }
+
+    .carousel-intro {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin: 0 auto 2rem;
+      text-align: center;
+      color: #6b4f3f;
     }
 
     .carousel-container {
@@ -78,6 +86,7 @@
       gap: 1.5rem;
       scroll-snap-type: x mandatory;
       padding: 0 2rem 2rem;
+      justify-content: center;
     }
 
     .carousel-container::-webkit-scrollbar {
@@ -135,6 +144,70 @@
       font-family: 'Playfair Display', serif;
       margin: 0.5rem 0;
     }
+
+    .deconstructed-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .deconstructed-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .deconstructed-text h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .deconstructed-text p {
+      font-size: 1rem;
+      color: #5e3d2c;
+      line-height: 1.6;
+    }
+
+    .deconstructed-card {
+      flex: 1;
+      background: #ffffff;
+      border: 1px solid #d7bfa5;
+      border-radius: 12px;
+      padding: 1rem;
+      max-width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .deconstructed-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .deconstructed-card h4 {
+      font-family: 'Playfair Display', serif;
+      margin: 0.5rem 0;
+    }
+
+    .deconstructed-caption {
+      font-size: 0.9rem;
+      color: #5e3d2c;
+    }
+
+    @media (max-width: 800px) {
+      .deconstructed-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .deconstructed-text {
+        text-align: center;
+      }
+    }
   </style>
   <script>
     function toggleMenu() {
@@ -166,6 +239,8 @@
   </div>
 
   <h2>What We’re Dreaming Up</h2>
+  <p class="carousel-intro">A collection of cannoli inspired by the hearts (and paws) behind the bakery.</p>
+
   <div class="carousel-container">
     <div class="cannoli-card">
       <img src="https://placekitten.com/250/150" alt="Carrots Cannolo" />
@@ -191,6 +266,21 @@
       <img src="https://placekitten.com/254/150" alt="Bouba Boy" />
       <div class="flavor-info">For the chonky snuggle muffin in all of us.</div>
       <h3>Bouba Boy</h3>
+    </div>
+  </div>
+
+  <div class="deconstructed-section">
+    <div class="deconstructed-text">
+      <h3>The Deconstructed Cannoli</h3>
+      <p>
+        Not every dream is rolled and filled. Some are layered, scattered, and built in cozy, curious bites.
+        This is our way of reimagining the cannoli — in parfaits, stacks, and spoonfuls of story.
+      </p>
+    </div>
+    <div class="deconstructed-card">
+      <img src="https://placekitten.com/260/180" alt="Deconstructed Cannoli" />
+      <h4>Build-a-Bite Cannoli</h4>
+      <p class="deconstructed-caption">Cream, crunch, and flavor in every playful spoon.</p>
     </div>
   </div>
 </body>
