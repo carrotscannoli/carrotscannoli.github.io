@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carrots Cannoli – A Whimsical Start</title>
+  <title>Carrots Cannoli</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,74 +13,88 @@
       color: #4b2e2e;
     }
 
-    header {
-      background-color: #fdf3e7;
-      text-align: center;
-      padding: 4rem 2rem 2rem;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f8ede7;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e0d6ce;
     }
 
-    header h1 {
+    .menu-toggle {
+      font-size: 1.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .logo {
+      max-height: 50px;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      left: 1.5rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none;
+      flex-direction: column;
+    }
+
+    .dropdown a {
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: #4b2e2e;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown a:hover {
+      background-color: #f3e9e3;
+    }
+
+    .dropdown.show {
+      display: flex;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       margin-bottom: 1rem;
     }
 
-    .intro-buttons a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #a0522d;
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-button {
+      background: #a0522d;
       color: white;
-      border-radius: 10px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
       text-decoration: none;
       transition: background 0.3s ease;
     }
 
-    .intro-buttons a:hover {
-      background-color: #8b4513;
-    }
-
-    .tile-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 3rem 2rem;
-      background-color: #fff9f0;
-    }
-
-    .tile {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      max-width: 300px;
-      text-align: center;
-      padding: 2rem 1.5rem;
-    }
-
-    .tile h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-      margin-bottom: 1rem;
-    }
-
-    .tile p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tile a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
-      background-color: #a0522d;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .tile a:hover {
+    .hero-button:hover {
       background-color: #8b4513;
     }
 
@@ -92,30 +106,61 @@
       color: #6a4e4e;
       background-color: #f8ede7;
     }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .logo {
+        max-width: 120px;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("dropdown-menu");
+      menu.classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+      const menu = document.getElementById("dropdown-menu");
+      if (!event.target.matches('.menu-toggle')) {
+        if (menu.classList.contains('show')) {
+          menu.classList.remove('show');
+        }
+      }
+    };
+  </script>
 </head>
 <body>
-  <header>
+  <div class="header">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
+  </div>
+  <div id="dropdown-menu" class="dropdown">
+    <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
+    <a href="inspiration.html">Meet the Inspiration</a>
+    <a href="humans.html">About the Humans</a>
+    <a href="dreams.html">What We're Dreaming Up</a>
+  </div>
+
+  <section class="hero fade-in">
     <h1>Welcome to Carrots Cannoli</h1>
-    <p>A sweet little dream filled with stories, sugar, and a ginger cat.</p>
-    <div class="intro-buttons">
-      <a href="about.html">Read Our Story</a>
-      <a href="lore_vintage_style.html">Enter the Lore</a>
-    </div>
-  </header>
-
-  <section class="tile-section">
-    <div class="tile">
-      <h2>About Us</h2>
-      <p>Two women, one ginger cat, and a shared dream of cannolis, coziness, and connection.</p>
-      <a href="about.html">Learn More</a>
-    </div>
-
-    <div class="tile">
-      <h2>The Lore</h2>
-      <p>Meet Carrots and Sir Parsnip as they bake their way through a whimsical world of flour and feeling.</p>
-      <a href="lore_vintage_style.html">Read the Tale</a>
-    </div>
+    <p>A whimsical world of sweet dreams, curious cats, and cozy cannolis.</p>
+    <a href="#" class="hero-button">Enter the Bakery</a>
   </section>
 
   <footer>
