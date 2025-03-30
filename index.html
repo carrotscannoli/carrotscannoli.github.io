@@ -11,6 +11,7 @@
       font-family: 'Quicksand', sans-serif;
       background: #fff6ec;
       color: #492500;
+      overflow: hidden;
     }
 
     .header {
@@ -69,7 +70,7 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      min-height: calc(100vh - 80px);
+      height: calc(100vh - 80px);
     }
 
     .hero {
@@ -89,30 +90,10 @@
       margin-bottom: 1rem;
     }
 
-    .glow-wrapper {
-      display: inline-block;
-      padding: 0.5rem;
-      border-radius: 50%;
-      animation: glowRing 4s ease-in-out infinite;
-      margin-bottom: 1rem;
-    }
-
     .logo-hero {
       max-width: 300px;
       display: block;
-      margin: 0 auto;
-    }
-
-    @keyframes glowRing {
-      0% {
-        box-shadow: 0 0 0px #f4d6a5;
-      }
-      50% {
-        box-shadow: 0 0 30px #f4d6a5;
-      }
-      100% {
-        box-shadow: 0 0 0px #f4d6a5;
-      }
+      margin: 0 auto 1rem;
     }
 
     .hero p {
@@ -140,6 +121,7 @@
       flex: 1;
       padding: 2rem;
       order: 2;
+      overflow-y: auto;
     }
 
     .contact-form h2 {
@@ -186,16 +168,20 @@
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 1rem;
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #492500;
       background-color: rgba(255, 246, 236, 0.95);
     }
 
     @media (max-width: 800px) {
+      body {
+        overflow: auto;
+      }
       .main-content {
         flex-direction: column;
+        height: auto;
       }
       .hero {
         order: 1;
@@ -253,11 +239,9 @@
       </form>
     </section>
 
-    <section class="hero fade-in">
+    <section class="hero">
       <h1>Welcome to Carrots Cannoli</h1>
-      <div class="glow-wrapper">
-        <img src="logo.png" alt="Carrots Cannoli Logo" class="logo-hero" />
-      </div>
+      <img src="logo.png" alt="Carrots Cannoli Logo" class="logo-hero" />
       <p>A whimsical world of sweet dreams, curious cats, and cozy cannolis.</p>
       <a href="#" class="hero-button">Enter the Bakery</a>
     </section>
