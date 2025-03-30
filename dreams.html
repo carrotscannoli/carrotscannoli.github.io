@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pastry Preview Carousel</title>
+  <title>What We're Dreaming Up | Carrots Cannoli</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,14 +11,65 @@
       font-family: 'Quicksand', sans-serif;
       background: #fff6ec;
       color: #492500;
-      padding: 2rem;
-      text-align: center;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 246, 236, 0.95);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #d7bfa5;
+      height: 80px;
+    }
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .logo {
+      max-height: 50px;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 80px;
+      left: 1rem;
+      background-color: #fff6ec;
+      border: 1px solid #d7bfa5;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+    }
+
+    .dropdown a {
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: #492500;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown a:hover {
+      background-color: #d7bfa5;
+    }
+
+    .dropdown.show {
+      display: flex;
     }
 
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      text-align: center;
+      margin: 2rem auto 1.5rem;
     }
 
     .carousel-container {
@@ -27,15 +77,16 @@
       overflow-x: auto;
       gap: 1.5rem;
       scroll-snap-type: x mandatory;
-      padding-bottom: 1rem;
+      padding: 0 2rem 2rem;
     }
 
     .carousel-container::-webkit-scrollbar {
       display: none;
     }
 
-    .pastry-card {
+    .cannoli-card {
       flex: 0 0 auto;
+      position: relative;
       background: #ffffff;
       border: 1px solid #d7bfa5;
       border-radius: 12px;
@@ -44,42 +95,102 @@
       max-width: 250px;
       scroll-snap-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
     }
 
-    .pastry-card img {
+    .cannoli-card img {
       width: 100%;
       border-radius: 8px;
-      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
     }
 
-    .pastry-card h3 {
+    .cannoli-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .flavor-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 246, 236, 0.95);
+      color: #492500;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .cannoli-card:hover .flavor-info {
+      opacity: 1;
+    }
+
+    .cannoli-card h3 {
       font-family: 'Playfair Display', serif;
       margin: 0.5rem 0;
     }
-
-    .pastry-card p {
-      font-size: 0.95rem;
-      color: #5e3d2c;
-    }
   </style>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("dropdown-menu");
+      menu.classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+      const menu = document.getElementById("dropdown-menu");
+      if (!event.target.matches('.menu-toggle')) {
+        if (menu.classList.contains('show')) {
+          menu.classList.remove('show');
+        }
+      }
+    };
+  </script>
 </head>
 <body>
-  <h2>Peek into the Display Case</h2>
+  <div class="header">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div id="dropdown-menu" class="dropdown">
+      <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
+      <a href="inspiration.html">Meet the Inspiration</a>
+      <a href="humans.html">About the Humans</a>
+      <a href="dreams.html">What We're Dreaming Up</a>
+      <a href="get-in-touch.html">Get in Touch</a>
+    </div>
+    <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
+  </div>
+
+  <h2>What We’re Dreaming Up</h2>
   <div class="carousel-container">
-    <div class="pastry-card">
-      <img src="https://placekitten.com/250/150" alt="Cinnamon Scroll of Destiny" />
-      <h3>Cinnamon Scroll of Destiny</h3>
-      <p>Swirled with ancient spice and sweet fortune, this scroll is Sir Parsnip-approved.</p>
+    <div class="cannoli-card">
+      <img src="https://placekitten.com/250/150" alt="Sunset Citrus Cannoli" />
+      <div class="flavor-info">Bright orange zest folded into the cream, kissed with candied lemon peel.</div>
+      <h3>Sunset Citrus Cannoli</h3>
     </div>
-    <div class="pastry-card">
-      <img src="https://placekitten.com/251/150" alt="Elderflower Dream Puff" />
-      <h3>Elderflower Dream Puff</h3>
-      <p>As light as a cloud and rumored to reveal your next big idea with every bite.</p>
+    <div class="cannoli-card">
+      <img src="https://placekitten.com/251/150" alt="Whispering Lavender Cannoli" />
+      <div class="flavor-info">Delicate lavender cream in a vanilla-dusted shell — best enjoyed under moonlight.</div>
+      <h3>Whispering Lavender Cannoli</h3>
     </div>
-    <div class="pastry-card">
-      <img src="https://placekitten.com/252/150" alt="Maple Mischief Bomboloni" />
-      <h3>Maple Mischief Bomboloni</h3>
-      <p>This one’s sticky, sneaky, and impossible to eat with a straight face.</p>
+    <div class="cannoli-card">
+      <img src="https://placekitten.com/252/150" alt="Espresso Daydream Cannoli" />
+      <div class="flavor-info">A smooth espresso mascarpone with a dusting of cocoa magic.</div>
+      <h3>Espresso Daydream Cannoli</h3>
+    </div>
+    <div class="cannoli-card">
+      <img src="https://placekitten.com/253/150" alt="Rosehip Raspberry Cannoli" />
+      <div class="flavor-info">Floral, tart, and pink as a secret — filled with raspberry rosehip delight.</div>
+      <h3>Rosehip Raspberry Cannoli</h3>
+    </div>
+    <div class="cannoli-card">
+      <img src="https://placekitten.com/254/150" alt="Carrots’ Classic Cannoli" />
+      <div class="flavor-info">The original! Carrots’ personal recipe with orange peel, ricotta, and cozy nostalgia.</div>
+      <h3>Carrots’ Classic Cannoli</h3>
     </div>
   </div>
 </body>
