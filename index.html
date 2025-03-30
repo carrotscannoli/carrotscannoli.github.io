@@ -9,20 +9,21 @@
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background: #fff6ec;
-      color: #23120a;
+      background: url('cottage.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #492500;
     }
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #d7bfa5;
+      background-color: rgba(255, 246, 236, 0.95);
       padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid #23120a;
+      border-bottom: 1px solid #d7bfa5;
     }
 
     .menu-toggle {
@@ -32,26 +33,26 @@
     }
 
     .logo {
-      max-height: 100px;
+      max-height: 50px;
     }
 
-   .dropdown {
-  position: absolute;
-  top: 3.5rem;
-  left: 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  display: none;
-  flex-direction: column;
-  z-index: 1001;
-}
+    .dropdown {
+      position: absolute;
+      top: 3.5rem;
+      left: 1rem;
+      background-color: #fff6ec;
+      border: 1px solid #d7bfa5;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+    }
 
     .dropdown a {
       padding: 0.75rem 1rem;
       text-decoration: none;
-      color: #fff6ec;
+      color: #492500;
       font-weight: bold;
       border-bottom: 1px solid #eee;
     }
@@ -65,13 +66,17 @@
     }
 
     .hero {
-      height: 50vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 2rem;
+      background-color: rgba(255, 246, 236, 0.8);
+      margin: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
 
     .hero h1 {
@@ -86,17 +91,18 @@
     }
 
     .hero-button {
-      background: #b8d1ae;
+      background: linear-gradient(to right, #e08b35, #b8d1ae);
       color: white;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
+      border: none;
       border-radius: 8px;
       text-decoration: none;
       transition: background 0.3s ease;
     }
 
     .hero-button:hover {
-      background-color: #94bb86;
+      background: linear-gradient(to right, #b8d1ae, #e08b35);
     }
 
     footer {
@@ -104,8 +110,8 @@
       padding: 2rem 1rem;
       font-style: italic;
       font-size: 1.1rem;
-      color: #23120a;
-      background-color: #d7bfa5;
+      color: #492500;
+      background-color: rgba(255, 246, 236, 0.95);
     }
 
     @media (max-width: 600px) {
@@ -148,20 +154,14 @@
 </head>
 <body>
   <div class="header">
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <div id="dropdown-menu" class="dropdown">
-    <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
-    <a href="inspiration.html">Meet the Inspiration</a>
-    <a href="humans.html">About the Humans</a>
-    <a href="dreams.html">What We're Dreaming Up</a>
-  </div>
-  <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
-</div>
-  <div id="dropdown-menu" class="dropdown">
-    <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
-    <a href="inspiration.html">Meet the Inspiration</a>
-    <a href="humans.html">About the Humans</a>
-    <a href="dreams.html">What We're Dreaming Up</a>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div id="dropdown-menu" class="dropdown">
+      <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
+      <a href="inspiration.html">Meet the Inspiration</a>
+      <a href="humans.html">About the Humans</a>
+      <a href="dreams.html">What We're Dreaming Up</a>
+    </div>
+    <img src="logo.png" alt="Carrots Cannoli Logo" class="logo" />
   </div>
 
   <section class="hero fade-in">
