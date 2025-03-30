@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome – Carrots Cannoli</title>
+  <title>Carrots Cannoli – A Whimsical Start</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,177 +13,113 @@
       color: #4b2e2e;
     }
 
-    header.hero {
-      background: url('hero_placeholder.jpg') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    header {
+      background-color: #fdf3e7;
       text-align: center;
-      padding: 2rem;
-      color: #fff;
-      background-color: #d8c7b4;
+      padding: 4rem 2rem 2rem;
     }
 
-    header.hero h1 {
+    header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       margin-bottom: 1rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 1rem 2rem;
-      border-radius: 8px;
     }
 
-    .hero-button {
-      background: #a0522d;
-      color: white;
-      border: none;
+    .intro-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
       padding: 0.75rem 1.5rem;
-      font-size: 1rem;
+      background-color: #a0522d;
+      color: white;
       border-radius: 10px;
       text-decoration: none;
       transition: background 0.3s ease;
     }
 
-    .hero-button:hover {
-      background: #8b4513;
+    .intro-buttons a:hover {
+      background-color: #8b4513;
     }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .characters {
+    .tile-section {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
-    }
-
-    .character {
-      width: 220px;
-    }
-
-    .character img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .character p {
-      font-style: italic;
-      margin-top: 0.75rem;
-    }
-
-    .dreams {
-      background-color: #fdf5ef;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.05);
       padding: 3rem 2rem;
+      background-color: #fff9f0;
     }
 
-    footer {
+    .tile {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 300px;
       text-align: center;
-      font-style: italic;
-      font-size: 1.1rem;
-      padding: 2rem 1rem;
-      color: #6a4e4e;
+      padding: 2rem 1.5rem;
     }
 
-    a {
-      color: #a0522d;
+    .tile h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .tile p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tile a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #a0522d;
+      color: white;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .tile a:hover {
+      background-color: #8b4513;
     }
 
-    .petal {
-      position: fixed;
-      top: -10px;
-      width: 24px;
-      height: 24px;
-      background-image: url('petal.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      z-index: 9999;
-      animation: fall 10s linear infinite;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    .fade-in {
-      animation: fadeIn 2s ease-out both;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #6a4e4e;
+      background-color: #f8ede7;
     }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      for (let i = 0; i < 20; i++) {
-        const petal = document.createElement('div');
-        petal.classList.add('petal');
-        petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDuration = (8 + Math.random() * 5) + 's';
-        petal.style.animationDelay = (Math.random() * 5) + 's';
-        document.body.appendChild(petal);
-      }
-    });
-  </script>
 </head>
 <body>
-  <header class="hero">
+  <header>
     <h1>Welcome to Carrots Cannoli</h1>
-    <a href="#characters" class="hero-button">Enter the Bakery</a>
+    <p>A sweet little dream filled with stories, sugar, and a ginger cat.</p>
+    <div class="intro-buttons">
+      <a href="about.html">Read Our Story</a>
+      <a href="lore_vintage_style.html">Enter the Lore</a>
+    </div>
   </header>
 
-  <section id="characters" class="fade-in">
-    <h2>Meet the Characters</h2>
-    <div class="characters">
-      <div class="character">
-        <img src="carrots_placeholder.jpg" alt="Carrots Cannoli" />
-        <p>Carrots – dreamer, snuggler, and keeper of cozy windowsills.</p>
-      </div>
-      <div class="character">
-        <img src="sir_parsnip_placeholder.jpg" alt="Sir Parsnip" />
-        <p>Sir Parsnip – wandering noble with flour on his boots and a heart full of recipes.</p>
-      </div>
+  <section class="tile-section">
+    <div class="tile">
+      <h2>About Us</h2>
+      <p>Two women, one ginger cat, and a shared dream of cannolis, coziness, and connection.</p>
+      <a href="about.html">Learn More</a>
+    </div>
+
+    <div class="tile">
+      <h2>The Lore</h2>
+      <p>Meet Carrots and Sir Parsnip as they bake their way through a whimsical world of flour and feeling.</p>
+      <a href="lore_vintage_style.html">Read the Tale</a>
     </div>
   </section>
 
-  <section class="dreams fade-in">
-    <h2>What We're Dreaming Up</h2>
-    <p>Flavors inspired by longing. Cannolis filled with poetry. A shop where magic and pastry meet.</p>
-    <p>Follow us on <a href="https://instagram.com/carrotscannoli" target="_blank">Instagram</a> to watch the story rise.</p>
-  </section>
-
   <footer>
-    “Whispers from the Window” – a dream, a pastry, and a promise to return.
+    “Whispers from the Window” — where dreams smell like sugar and stories are served warm.
   </footer>
 </body>
 </html>
