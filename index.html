@@ -6,89 +6,114 @@
   <title>Carrots Cannoli</title>
   <link href="https://fonts.googleapis.com/css2?family=Bitter&family=Lora&display=swap" rel="stylesheet">
   <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
-    background: #fff9f5;
-    color: #4b2e2e;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    padding: 2rem;
-  }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Bitter', serif;
+      background: #fff9f5;
+      color: #4b2e2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
 
-  h1 {
-  font-family: 'Lora', serif;
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
+    img.logo {
+      max-width: 300px;
+      margin-bottom: 1rem;
+    }
 
-  .tagline,
-  .message,
-  .contact {
-    font-family: 'Bitter', serif;
-  }
-
-  .tagline {
-    font-style: italic;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #6a4e4e;
-  }
-
-  .message {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-  }
-
-  .contact {
-    font-size: 1rem;
-    color: #4b2e2e;
-  }
-
-  a {
-    color: #a0522d;
-    text-decoration: none;
-    margin: 0 0.5rem;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .emoji {
-    font-size: 2rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 600px) {
     h1 {
-      font-size: 2.2rem;
+      font-family: 'Lora', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
 
     .tagline {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #6a4e4e;
+    }
+
+    .section {
+      margin: 3rem 0;
+      max-width: 600px;
+    }
+
+    .section img {
+      max-width: 100%;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section h2 {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      font-family: 'Bitter', serif;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #a0522d;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
       font-size: 1rem;
     }
 
-    .message {
-      font-size: 1rem;
+    button:hover {
+      background-color: #8b4513;
     }
-  }
-</style>
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <img src="logov4.png" alt="Carrots Cannoli logo" style="max-width: 300px; margin-bottom: 1rem;" />
+  <img src="logov4.png" alt="Carrots Cannoli logo" class="logo" />
   <h1>Carrots Cannoli</h1>
   <div class="tagline">A sweet little dream by two women and a ginger cat.</div>
-  <div class="message">We’re baking something magical. Check back soon!</div>
-  <div class="contact">
-    <a href="mailto:carrotscannoli@gmail.com">carrotscannoli@gmail.com</a> |
-    <a href="https://instagram.com/carrotscannoli" target="_blank">@carrotscannoli</a>
+
+  <div class="section">
+    <h2>Meet Carrots</h2>
+    <img src="carrots.jpg" alt="Photo of Carrots the cat" />
+    <p>Carrots is our round, ginger boy with a big heart and a love for snuggles. He’s been the muse behind this whimsical little dream. With his big eyes, gentle purr, and slightly dramatic energy, Carrots Cannoli was born as a tribute to joy, love, and dessert.</p>
   </div>
-  <div class="emoji">🐈‍⬛🍰</div>
+
+  <div class="section">
+    <h2>Contact Us</h2>
+    <form action="https://formsubmit.co/carrotscannoli@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Tell us something sweet..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
 </body>
 </html>
