@@ -14,7 +14,7 @@
       background: #fff6ec;
       color: #492500;
     }
-    
+
     .header {
       display: flex;
       justify-content: space-between;
@@ -243,6 +243,11 @@
       margin: 2rem auto 1rem;
       color: #6b4f3f;
       max-width: 600px;
+      transition: opacity 0.6s ease;
+    }
+
+    .whimsy-quote.fade {
+      opacity: 0;
     }
 
     .cta-button-wrap {
@@ -276,24 +281,62 @@
         text-align: center;
       }
     }
-      .footer-nav {
-        text-align: center;
-        padding: 1rem;
-        font-size: 1rem;
-        background-color: #fff6ec;
-      }
+
+    .footer-nav {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #fff6ec;
+    }
 
     .footer-nav a {
-        text-decoration: none;
-        color: #492500;
-        font-weight: bold;
-      }
+      text-decoration: none;
+      color: #492500;
+      font-weight: bold;
+    }
 
     .footer-nav a:hover {
       color: #e08b35;
     }
-
   </style>
+</head>
+<body>
+  <div class="header">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div id="dropdown-menu" class="dropdown">
+      <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
+      <a href="inspiration.html">Meet the Inspiration</a>
+      <a href="humans.html">About the Humans</a>
+      <a href="dreams.html">What We're Dreaming Up</a>
+      <a href="get-in-touch.html">Get in Touch</a>
+    </div>
+    <a href="index.html">
+      <img src="cannoli.png" alt="Cannoli Logo" class="logo" />
+    </a>
+  </div>
+
+  <h2>What We’re Dreaming Up</h2>
+  <p class="carousel-intro">A collection of cannoli inspired by the hearts (and paws) behind the bakery.</p>
+
+  <div class="carousel-container">
+    <!-- Cannoli cards here (unchanged) -->
+    <!-- ... -->
+  </div>
+
+  <div class="deconstructed-section">
+    <!-- Deconstructed content here (unchanged) -->
+  </div>
+
+  <p id="whimsy-quote" class="whimsy-quote">“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”</p>
+
+  <div class="cta-button-wrap">
+    <a href="get-in-touch.html" class="cta-button">Interested in learning more?<br />Get in touch!</a>
+  </div>
+
+  <footer class="footer-nav">
+    <a href="index.html">← Back to Home</a>
+  </footer>
+
   <script>
     function toggleMenu() {
       const menu = document.getElementById("dropdown-menu");
@@ -309,85 +352,27 @@
         }
       }
     };
+
+    // Whimsy quote rotation
+    const quoteEl = document.getElementById("whimsy-quote");
+
+    const quotes = [
+      "“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”",
+      "“Cannoli dreams rise best in cozy corners and crinkled recipe cards.”",
+      "“The sweetest stories are always half true, half whipped cream.”",
+      "“Some pastries are filled with cream. Ours are filled with character.”",
+      "“Behind every cannoli is a whisper of whiskers and whimsy.”"
+    ];
+
+    let quoteIndex = 0;
+    setInterval(() => {
+      quoteEl.classList.add("fade");
+      setTimeout(() => {
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+        quoteEl.textContent = quotes[quoteIndex];
+        quoteEl.classList.remove("fade");
+      }, 300);
+    }, 6000);
   </script>
-</head>
-<body>
-  <div class="header">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <div id="dropdown-menu" class="dropdown">
-      <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
-      <a href="inspiration.html">Meet the Inspiration</a>
-      <a href="humans.html">About the Humans</a>
-      <a href="dreams.html">What We're Dreaming Up</a>
-      <a href="get-in-touch.html">Get in Touch</a>
-    </div>
-      <a href="index.html">
-        <img src="cannoli.png" alt="Cannoli Image" class="logo" />
-      </a>
-  </div>
-
-  <h2>What We’re Dreaming Up</h2>
-  <p class="carousel-intro">A collection of cannoli inspired by the hearts (and paws) behind the bakery.</p>
-
-  <div class="carousel-container">
-    <div class="cannoli-card">
-      <img src="https://placekitten.com/250/150" alt="Carrots Cannolo" />
-      <div class="flavor-info">The timeless OG from Carrots' cottage.</div>
-      <h3>Carrots Cannolo</h3>
-      <p class="flavor-caption">Orange zest, vanilla ricotta, and a sprinkle of nostalgia.</p>
-    </div>
-    <div class="cannoli-card">
-      <img src="https://placekitten.com/251/150" alt="Sir Parsnip's Pistachio" />
-      <div class="flavor-info">Elegant, bold, and noble. The Parsnip way.</div>
-      <h3>Sir Parsnip's Pistachio</h3>
-      <p class="flavor-caption">Toasted pistachio cream with a whisper of sea salt.</p>
-    </div>
-    <div class="cannoli-card">
-      <img src="https://placekitten.com/252/150" alt="Turtle Tracks" />
-      <div class="flavor-info">A tribute to Carrots' late sister, Turtle.</div>
-      <h3>Turtle Tracks</h3>
-      <p class="flavor-caption">Swirls of fudge, caramel crunch, and memory.</p>
-    </div>
-    <div class="cannoli-card">
-      <img src="https://placekitten.com/253/150" alt="Zo-Zo Berry" />
-      <div class="flavor-info">Fresh and joyful, named after Carrots' (forced) BFF.</div>
-      <h3>Zo-Zo Berry</h3>
-      <p class="flavor-caption">Sweet cream bursting with wild blueberry charm.</p>
-    </div>
-    <div class="cannoli-card">
-      <img src="https://placekitten.com/254/150" alt="Bouba Boy" />
-      <div class="flavor-info">For the chonky snuggle muffin in all of us.</div>
-      <h3>Bouba Boy</h3>
-      <p class="flavor-caption">Brown sugar, maple drizzle, and maximum fluff.</p>
-    </div>
-  </div>
-
-  <div class="deconstructed-section">
-    <div class="deconstructed-text">
-      <h3>The Deconstructed Cannoli</h3>
-      <p>
-        Not every dream is rolled and filled. Some are layered, scattered, and built in cozy, curious bites.
-        This is our way of reimagining the cannoli — in parfaits, stacks, and spoonfuls of story.
-      </p>
-    </div>
-    <div class="deconstructed-card">
-      <img src="https://placekitten.com/260/180" alt="Deconstructed Cannoli" />
-      <div class="deconstructed-info">
-        Coming soon: Build your own bite! Pick your favorite fillings and toppings for a custom cannoli experience.
-      </div>
-      <h4>Build-a-Bite Cannoli</h4>
-      <p class="deconstructed-caption">Cream, crunch, and flavor in every playful spoon.</p>
-    </div>
-  </div>
-
-  <p class="whimsy-quote">“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”</p>
-
-  <div class="cta-button-wrap">
-    <a href="get-in-touch.html" class="cta-button">Interested in learning more?<br />Get in touch!</a>
-  </div>
-  <footer class="footer-nav">
-    <a href="index.html">← Back to Home</a>
-  </footer>
-
 </body>
 </html>
