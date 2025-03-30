@@ -1,378 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What We're Dreaming Up | Carrots Cannoli</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Quicksand', sans-serif;
-      background: #fff6ec;
-      color: #492500;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgba(255, 246, 236, 0.95);
-      padding: 0.5rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #d7bfa5;
-      height: 60px;
-    }
-
-    .menu-toggle {
-      font-size: 1.5rem;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .logo {
-      max-height: 50px;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 100%;
-      left: 1rem;
-      background-color: #fff6ec;
-      border: 1px solid #d7bfa5;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: none;
-      flex-direction: column;
-      z-index: 1001;
-    }
-
-    .dropdown a {
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      color: #492500;
-      font-weight: bold;
-      border-bottom: 1px solid #eee;
-    }
-
-    .dropdown a:hover {
-      background-color: #d7bfa5;
-    }
-
-    .dropdown.show {
-      display: flex;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      text-align: center;
-      margin: 2rem auto 1rem;
-    }
-
-    .carousel-intro {
-      font-style: italic;
-      font-size: 1.1rem;
-      margin: 0 auto 2rem;
-      text-align: center;
-      color: #6b4f3f;
-    }
-
-    .carousel-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 1.5rem;
-      scroll-snap-type: x mandatory;
-      padding: 0 2rem 2rem;
-      justify-content: center;
-    }
-
-    .carousel-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .cannoli-card {
-      flex: 0 0 auto;
-      position: relative;
-      background: #ffffff;
-      border: 1px solid #d7bfa5;
-      border-radius: 12px;
-      padding: 1rem;
-      min-width: 250px;
-      max-width: 250px;
-      scroll-snap-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      overflow: hidden;
-    }
-
-    .cannoli-card img {
-      width: 100%;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-      margin-bottom: 0.5rem;
-    }
-
-    .cannoli-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .flavor-info {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(255, 246, 236, 0.95);
-      color: #492500;
-      font-size: 0.95rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 12px;
-    }
-
-    .cannoli-card:hover .flavor-info {
-      opacity: 1;
-    }
-
-    .cannoli-card h3 {
-      font-family: 'Playfair Display', serif;
-      margin: 0.5rem 0 0.25rem;
-    }
-
-    .flavor-caption {
-      font-size: 0.9rem;
-      color: #5e3d2c;
-    }
-
-    .deconstructed-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .deconstructed-text {
-      flex: 1;
-      text-align: left;
-    }
-
-    .deconstructed-text h3 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 0.5rem;
-    }
-
-    .deconstructed-text p {
-      font-size: 1rem;
-      color: #5e3d2c;
-      line-height: 1.6;
-    }
-
-    .deconstructed-card {
-      flex: 1;
-      position: relative;
-      background: #ffffff;
-      border: 1px solid #d7bfa5;
-      border-radius: 12px;
-      padding: 1rem;
-      max-width: 300px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .deconstructed-card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    .deconstructed-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .deconstructed-card h4 {
-      font-family: 'Playfair Display', serif;
-      margin: 0.5rem 0;
-    }
-
-    .deconstructed-caption {
-      font-size: 0.9rem;
-      color: #5e3d2c;
-    }
-
-    .deconstructed-info {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(255, 246, 236, 0.95);
-      color: #492500;
-      font-size: 0.95rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 12px;
-    }
-
-    .deconstructed-card:hover .deconstructed-info {
-      opacity: 1;
-    }
-
-    .whimsy-quote {
-      font-style: italic;
-      font-size: 1rem;
-      text-align: center;
-      margin: 2rem auto 1rem;
-      color: #6b4f3f;
-      max-width: 600px;
-      transition: opacity 0.6s ease;
-    }
-
-    .whimsy-quote.fade {
-      opacity: 0;
-    }
-
-    .cta-button-wrap {
-      text-align: center;
-      margin: 1rem 0 1.5rem;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background-color: #492500;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #e08b35;
-      color: #fff;
-    }
-
-    @media (max-width: 800px) {
-      .deconstructed-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .deconstructed-text {
-        text-align: center;
-      }
-    }
-
-    .footer-nav {
-      text-align: center;
-      padding: 1rem;
-      font-size: 1rem;
-      background-color: #fff6ec;
-    }
-
-    .footer-nav a {
-      text-decoration: none;
-      color: #492500;
-      font-weight: bold;
-    }
-
-    .footer-nav a:hover {
-      color: #e08b35;
-    }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <div id="dropdown-menu" class="dropdown">
-      <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
-      <a href="inspiration.html">Meet the Inspiration</a>
-      <a href="humans.html">About the Humans</a>
-      <a href="dreams.html">What We're Dreaming Up</a>
-      <a href="get-in-touch.html">Get in Touch</a>
-    </div>
-    <a href="index.html">
-      <img src="cannoli.png" alt="Cannoli Logo" class="logo" />
-    </a>
-  </div>
-
-  <h2>What We’re Dreaming Up</h2>
-  <p class="carousel-intro">A collection of cannoli inspired by the hearts (and paws) behind the bakery.</p>
-
-  <div class="carousel-container">
-    <!-- Cannoli cards here (unchanged) -->
-    <!-- ... -->
-  </div>
-
-  <div class="deconstructed-section">
-    <!-- Deconstructed content here (unchanged) -->
-  </div>
-
-  <p id="whimsy-quote" class="whimsy-quote">“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”</p>
-
-  <div class="cta-button-wrap">
-    <a href="get-in-touch.html" class="cta-button">Interested in learning more?<br />Get in touch!</a>
-  </div>
-
-  <footer class="footer-nav">
-    <a href="index.html">← Back to Home</a>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("dropdown-menu");
-      menu.classList.toggle("show");
-    }
-
-    window.onclick = function(event) {
-      const menu = document.getElementById("dropdown-menu");
-      if (!event.target.matches('.menu-toggle')) {
-        const dropdown = document.getElementById("dropdown-menu");
-        if (dropdown.classList.contains('show')) {
-          dropdown.classList.remove('show');
-        }
-      }
-    };
-
-    // Whimsy quote rotation
-    const quoteEl = document.getElementById("whimsy-quote");
-
-    const quotes = [
-      "“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”",
-      "“Cannoli dreams rise best in cozy corners and crinkled recipe cards.”",
-      "“The sweetest stories are always half true, half whipped cream.”",
-      "“Some pastries are filled with cream. Ours are filled with character.”",
-      "“Behind every cannoli is a whisper of whiskers and whimsy.”"
-    ];
-
-    let quoteIndex = 0;
-    setInterval(() => {
-      quoteEl.classList.add("fade");
-      setTimeout(() => {
-        quoteIndex = (quoteIndex + 1) % quotes.length;
-        quoteEl.textContent = quotes[quoteIndex];
-        quoteEl.classList.remove("fade");
-      }, 300);
-    }, 6000);
-  </script>
-</body>
-</html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Carrots Cannoli</title>
+   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+   <style>
+     html, body {
+       height: 100%;
+       margin: 0;
+       padding: 0;
+       font-family: 'Quicksand', sans-serif;
+       background: #fff6ec;
+       color: #492500;
+       overflow-x: hidden;
+     }
+ 
+     .page-container {
+       display: flex;
+       flex-direction: column;
+       height: 100vh;
+     }
+ 
+     .header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       background-color: rgba(255, 246, 236, 0.95);
+       padding: 0.5rem 1.5rem;
+       position: sticky;
+       top: 0.5rem;
+       z-index: 1000;
+       border-bottom: 1px solid #d7bfa5;
+       height: 60px;
+     }
+ 
+     .menu-toggle {
+       font-size: 1.5rem;
+       cursor: pointer;
+       user-select: none;
+     }
+ 
+     .logo {
+       max-height: 50px;
+     }
+ 
+     .dropdown {
+       position: absolute;
+       top: 80px;
+       left: 1rem;
+       background-color: #fff6ec;
+       border: 1px solid #d7bfa5;
+       border-radius: 8px;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+       display: none;
+       flex-direction: column;
+       z-index: 1001;
+     }
+ 
+     .dropdown a {
+       padding: 0.75rem 1rem;
+       text-decoration: none;
+       color: #492500;
+       font-weight: bold;
+       border-bottom: 1px solid #eee;
+     }
+ 
+     .dropdown a:hover {
+       background-color: #d7bfa5;
+     }
+ 
+     .dropdown.show {
+       display: flex;
+     }
+ 
+     .hero {
+       flex-grow: 1;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       text-align: center;
+       justify-content: center;
+       padding: 1rem 2rem;
+       box-sizing: border-box;
+     }
+ 
+     .hero h1 {
+       margin-top: 1.5rem;
+     }
+ 
+     h1 {
+       font-family: 'Lora', serif;
+       font-size: 2.8rem;
+       margin: 0 0 1rem;
+     }
+ 
+     .tagline {
+       font-size: 1.2rem;
+       margin-bottom: 2rem;
+       color: #6b4f3f;
+     }
+ 
+     .hero-buttons {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       gap: 1rem;
+       margin-bottom: 1.75rem;
+     }
+ 
+     .hero-button {
+       background-color: #492500;
+       color: #fff;
+       padding: 0.75rem 1.5rem;
+       border-radius: 8px;
+       text-decoration: none;
+       font-weight: bold;
+       transition: background-color 0.3s ease;
+     }
+ 
+     .hero-button:hover {
+       background-color: #e08b35;
+     }
+ 
+     .hero-logo {
+       width: 200px;
+       max-width: 80%;
+       margin: 0.5rem 0;
+     }
+ 
+     footer {
+       flex-shrink: 0;
+       text-align: center;
+       font-size: 0.95rem;
+       padding: 0.5rem 1rem;
+       color: #6b4f3f;
+       max-width: 700px;
+       margin: 0 auto;
+       line-height: 1.5;
+       transition: opacity 0.6s ease;
+     }
+ 
+     footer.fade {
+       opacity: 0;
+     }
+ 
+     @media (max-width: 600px) {
+       h1 {
+         font-size: 2rem;
+       }
+ 
+       .tagline {
+         font-size: 1rem;
+       }
+     }
+ 
+   </style>
+   <script>
+     function toggleMenu() {
+       const menu = document.getElementById("dropdown-menu");
+       menu.classList.toggle("show");
+     }
+ 
+     window.onclick = function(event) {
+       const menu = document.getElementById("dropdown-menu");
+       if (!event.target.matches('.menu-toggle')) {
+         if (menu.classList.contains('show')) {
+           menu.classList.remove('show');
+         }
+       }
+     };
+   </script>
+ </head>
+ <body>
+   <div class="header">
+     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+     <div id="dropdown-menu" class="dropdown">
+       <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
+       <a href="inspiration.html">Meet the Inspiration</a>
+       <a href="humans.html">About the Humans</a>
+       <a href="dreams.html">What We're Dreaming Up</a>
+       <a href="get-in-touch.html">Get in Touch</a>
+     </div>
+     <a href="index.html"><img src="cannoli.png" alt="Cannoli Image" class="logo" /></a>
+   </div>
+ 
+   <div class="hero">
+     <h1>Welcome to Carrots Cannoli</h1>
+     <div class="tagline">A whimsical world of sweet dreams, curious cats, and cozy cannolis.</div>
+     <div class="hero-buttons">
+       <a href="lore.html" class="hero-button">Explore the Lore</a>
+       <a href="dreams.html" class="hero-button">See the Vision</a>
+       <a href="get-in-touch.html" class="hero-button">Get in Touch</a>
+     </div>
+       <img src="logo.png" alt="Carrots Cannoli Logo" class="hero-logo" />
+   </div>
+ 
+   <footer id="rotating-footer">
+     2025 Carrots Cannoli — Made with magic, the sighs of an unemployed ginger cat, and an unnecessarily tragic backstory.
+     Carrots Cannoli, Est 2025
+   </footer>
+ 
+ <script>
+     function toggleMenu() {
+       const menu = document.getElementById("dropdown-menu");
+       menu.classList.toggle("show");
+     }
+ 
+     window.onclick = function(event) {
+       const menu = document.getElementById("dropdown-menu");
+       if (!event.target.matches('.menu-toggle')) {
+         if (menu.classList.contains('show')) {
+           menu.classList.remove('show');
+         }
+       }
+     };
+ 
+     // Rotating footer messages
+     const footer = document.getElementById("rotating-footer");
+ 
+     const messages = [
+       "Made with magic, the sighs of an unemployed ginger cat, and an unnecessarily tragic backstory.",
+       "Whisked with dreams, folded with grief, baked in a cottage of chaos.",
+       "Powered by espresso, whimsy, and one cat's soft longing stare.",
+       "Crafted from cream, folklore, and an alarming amount of cinnamon.",
+       "Conceived on a windowsill, in a moment of existential feline reflection.",
+       "Sprinkled with sugar and ghostwritten by a cat who swears he had potential."
+     ];
+ 
+     let index = 0;
+     setInterval(() => {
+       footer.classList.add("fade");
+       setTimeout(() => {
+         index = (index + 1) % messages.length;
+         footer.textContent = messages[index];
+         footer.classList.remove("fade");
+       }, 300);
+     }, 5000);
+   </script>
+ </body>
+ </html>
