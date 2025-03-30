@@ -2,32 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us – Carrots Cannoli</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We're Dreaming Up | Carrots Cannoli</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: 'Quicksand', sans-serif;
       background: #fff6ec;
       color: #492500;
-      overflow-x: hidden;
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgba(255, 246, 236, 0.95);
-      padding: 0.5rem 1.5rem;
-      position: sticky;
-      top: 0.5rem;
-      z-index: 1000;
-      border-bottom: 1px solid #d7bfa5;
-      height: 60px;
-    }
+     .header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       background-color: rgba(255, 246, 236, 0.95);
+       padding: 0.5rem 1.5rem;
+       position: sticky;
+       top: 0.5rem;
+       z-index: 1000;
+       border-bottom: 1px solid #d7bfa5;
+       height: 60px;
+     }
 
     .menu-toggle {
       font-size: 1.5rem;
@@ -68,81 +67,316 @@
       display: flex;
     }
 
-    .content-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      gap: 2rem;
-    }
-
-    .about-text, .about-image {
-      flex: 1 1 400px;
-      max-width: 600px;
-    }
-
-    .about-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .about-text p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .about-image img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .vision-section {
-      max-width: 700px;
-      margin: 3rem auto;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-
-    .vision-section h2 {
+    h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
-      margin-bottom: 1rem;
+      text-align: center;
+      margin: 2rem auto 1rem;
     }
 
-    .vision-section p {
+    .carousel-intro {
+      font-style: italic;
       font-size: 1.1rem;
+      margin: 0 auto 2rem;
+      text-align: center;
+      color: #6b4f3f;
+    }
+
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      scroll-snap-type: x mandatory;
+      padding: 0 2rem 2rem;
+      justify-content: center;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cannoli-card {
+      flex: 0 0 auto;
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #d7bfa5;
+      border-radius: 12px;
+      padding: 1rem;
+      min-width: 250px;
+      max-width: 250px;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    .cannoli-card img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+
+    .cannoli-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .flavor-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 246, 236, 0.95);
+      color: #492500;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .cannoli-card:hover .flavor-info {
+      opacity: 1;
+    }
+
+    .cannoli-card h3 {
+      font-family: 'Playfair Display', serif;
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .flavor-caption {
+      font-size: 0.9rem;
+      color: #5e3d2c;
+    }
+
+    .deconstructed-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .deconstructed-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .deconstructed-text h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .deconstructed-text p {
+      font-size: 1rem;
       color: #5e3d2c;
       line-height: 1.6;
     }
 
-    .back-link {
-      display: inline-block;
+    .deconstructed-card {
+      flex: 1;
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #d7bfa5;
+      border-radius: 12px;
+      padding: 1rem;
+      max-width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
       text-align: center;
-      margin: 3rem auto 2rem;
+      overflow: hidden;
+    }
+
+    .deconstructed-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .deconstructed-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .deconstructed-card h4 {
+      font-family: 'Playfair Display', serif;
+      margin: 0.5rem 0;
+    }
+
+    .deconstructed-caption {
+      font-size: 0.9rem;
+      color: #5e3d2c;
+    }
+
+    .deconstructed-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 246, 236, 0.95);
+      color: #492500;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .deconstructed-card:hover .deconstructed-info {
+      opacity: 1;
+    }
+
+    .whimsy-quote {
+      font-style: italic;
+      font-size: 1rem;
+      text-align: center;
+      margin: 2rem auto 1rem;
+      color: #6b4f3f;
+      max-width: 600px;
+      transition: opacity 0.6s ease;
+    }
+
+    .whimsy-quote.fade {
+      opacity: 0;
+    }
+
+    .cta-button-wrap {
+      text-align: center;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #492500;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e08b35;
+      color: #fff;
+    }
+
+    @media (max-width: 800px) {
+      .deconstructed-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .deconstructed-text {
+        text-align: center;
+      }
+    }
+
+    .footer-nav {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #fff6ec;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      color: #492500;
       font-weight: bold;
     }
 
-    .back-link a {
-      color: #a0522d;
-      text-decoration: none;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .content-container {
-        flex-direction: column;
-        padding: 1.5rem;
-      }
+    .footer-nav a:hover {
+      color: #e08b35;
     }
   </style>
+</head>
+<body>
+  <div class="header">
+     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+     <div id="dropdown-menu" class="dropdown">
+       <a href="lore.html">Explore the Lore</a>
+       <a href="dreams.html">What We're Dreaming Up</a>
+       <a href="inspiration.html">Meet the Cats</a>
+       <a href="about.html">About the Humans</a>
+       <a href="get-in-touch.html">Get in Touch</a>
+     </div>
+     <a href="index.html"><img src="cannoli.png" alt="Cannoli Image" class="logo" /></a>
+   </div>
+
+  <h2>What We’re Dreaming Up</h2>
+  <p class="carousel-intro">A collection of cannoli inspired by the hearts (and paws) behind the bakery.</p>
+
+  <div class="carousel-container">
+     <div class="cannoli-card">
+       <img src="https://placekitten.com/250/150" alt="Carrots Cannolo" />
+       <div class="flavor-info">The timeless OG from Carrots' cottage.</div>
+       <h3>Carrots Cannolo</h3>
+       <p class="flavor-caption">Orange zest, vanilla ricotta, and a sprinkle of nostalgia.</p>
+     </div>
+     <div class="cannoli-card">
+       <img src="https://placekitten.com/251/150" alt="Sir Parsnip's Pistachio" />
+       <div class="flavor-info">Elegant, bold, and noble. The Parsnip way.</div>
+       <h3>Sir Parsnip's Pistachio</h3>
+       <p class="flavor-caption">Toasted pistachio cream with a whisper of sea salt.</p>
+     </div>
+     <div class="cannoli-card">
+       <img src="https://placekitten.com/252/150" alt="Turtle Tracks" />
+       <div class="flavor-info">A tribute to Carrots' late sister, Turtle.</div>
+       <h3>Turtle Tracks</h3>
+       <p class="flavor-caption">Swirls of fudge, caramel crunch, and memory.</p>
+     </div>
+     <div class="cannoli-card">
+       <img src="https://placekitten.com/253/150" alt="Zo-Zo Berry" />
+       <div class="flavor-info">Fresh and joyful, named after Carrots' (forced) BFF.</div>
+       <h3>Zo-Zo Berry</h3>
+       <p class="flavor-caption">Sweet cream bursting with wild blueberry charm.</p>
+     </div>
+     <div class="cannoli-card">
+       <img src="https://placekitten.com/254/150" alt="Bouba Boy" />
+       <div class="flavor-info">For the chonky snuggle muffin in all of us.</div>
+       <h3>Bouba Boy</h3>
+       <p class="flavor-caption">Brown sugar, maple drizzle, and maximum fluff.</p>
+     </div>
+   </div>
+ 
+   <div class="deconstructed-section">
+     <div class="deconstructed-text">
+       <h3>The Deconstructed Cannoli</h3>
+       <p>
+         Not every dream is rolled and filled. Some are layered, scattered, and built in cozy, curious bites.
+         This is our way of reimagining the cannoli — in parfaits, stacks, and spoonfuls of story.
+       </p>
+     </div>
+     <div class="deconstructed-card">
+       <img src="https://placekitten.com/260/180" alt="Deconstructed Cannoli" />
+       <div class="deconstructed-info">
+         Coming soon: Build your own bite! Pick your favorite fillings and toppings for a custom cannoli experience.
+       </div>
+       <h4>Build-a-Bite Cannoli</h4>
+       <p class="deconstructed-caption">Cream, crunch, and flavor in every playful spoon.</p>
+     </div>
+   </div>
+
+  <p id="whimsy-quote" class="whimsy-quote">“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”</p>
+
+  <div class="cta-button-wrap">
+    <a href="get-in-touch.html" class="cta-button">Interested in learning more?<br />Get in touch!</a>
+  </div>
+
+  <footer class="footer-nav">
+    <a href="index.html">← Back to Home</a>
+  </footer>
+
   <script>
     function toggleMenu() {
       const menu = document.getElementById("dropdown-menu");
@@ -152,46 +386,33 @@
     window.onclick = function(event) {
       const menu = document.getElementById("dropdown-menu");
       if (!event.target.matches('.menu-toggle')) {
-        if (menu.classList.contains('show')) {
-          menu.classList.remove('show');
+        const dropdown = document.getElementById("dropdown-menu");
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
         }
       }
     };
+
+    // Whimsy quote rotation
+    const quoteEl = document.getElementById("whimsy-quote");
+
+    const quotes = [
+      "“Every flavor tells a tale. Some are sweet, some are secret — all are meant to be shared.”",
+      "“Cannoli dreams rise best in cozy corners and crinkled recipe cards.”",
+      "“The sweetest stories are always half true, half whipped cream.”",
+      "“Some pastries are filled with cream. Ours are filled with character.”",
+      "“Behind every cannoli is a whisper of whiskers and whimsy.”"
+    ];
+
+    let quoteIndex = 0;
+    setInterval(() => {
+      quoteEl.classList.add("fade");
+      setTimeout(() => {
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+        quoteEl.textContent = quotes[quoteIndex];
+        quoteEl.classList.remove("fade");
+      }, 300);
+    }, 6000);
   </script>
-</head>
-<body>
-  <div class="header">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <div id="dropdown-menu" class="dropdown">
-      <a href="lore.html">The Tale of Carrots Cannoli & Sir Parsnip</a>
-      <a href="inspiration.html">Meet the Cats</a>
-      <a href="dreams.html">What We're Dreaming Up</a>
-      <a href="about.html">About the Humans</a>
-      <a href="get-in-touch.html">Get in Touch</a>
-    </div>
-    <a href="index.html">
-      <img src="cannoli.png" alt="Cannoli Image" class="logo" />
-    </a>
-  </div>
-
-  <div class="content-container">
-    <div class="about-text">
-      <h1>About Us</h1>
-      <p>Carrots Cannoli was born out of love, laughter, and a ginger cat named Carrots. It started as a daydream shared by two women in a tiny kitchen — one filled with the smell of espresso, the warmth of each other's company, and a cat who always found the sunniest spot on the floor.</p>
-      <p>We believe desserts are more than just sweet treats — they're memories in the making, comfort in a bite, and love stories in sugar and cream. Our goal is to create a space (digital and maybe someday physical!) that feels like a hug from an old friend.</p>
-    </div>
-    <div class="about-image">
-      <img src="humans.png" alt="Founders of Carrots Cannoli">
-    </div>
-  </div>
-
-  <div class="vision-section">
-    <h2>Our Vision</h2>
-    <p>We hope to build more than just a bakery — we want to build a soft place to land. One where customers feel seen, cozy, and creatively inspired. Whether it's a bite of cannoli that tastes like childhood joy or a story shared on our site that makes someone smile — we want you to feel part of the magic. Our dream is to blend the sweetness of tradition with the wild wonder of imagination. Come along, won't you?</p>
-  </div>
-
-  <div class="back-link">
-    <a href="index.html">← Back to Home</a>
-  </div>
 </body>
 </html>
